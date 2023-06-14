@@ -1,12 +1,12 @@
 ARG ARCH="amd64"
 ARG OS="linux"
-FROM quay.io/prometheus/busybox-${OS}-${ARCH}:latest
+FROM quay.io/prometheus/busybox:latest
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
 ARG ARCH="amd64"
 ARG OS="linux"
-COPY .build/${OS}-${ARCH}/prometheus        /bin/prometheus
-COPY .build/${OS}-${ARCH}/promtool          /bin/promtool
+COPY ./prometheus        /bin/prometheus
+COPY ./promtool          /bin/promtool
 COPY documentation/examples/prometheus.yml  /etc/prometheus/prometheus.yml
 COPY console_libraries/                     /usr/share/prometheus/console_libraries/
 COPY consoles/                              /usr/share/prometheus/consoles/
