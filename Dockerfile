@@ -1,10 +1,6 @@
-ARG ARCH="amd64"
-ARG OS="linux"
-FROM quay.io/prometheus/busybox:latest
+FROM alpine:3.21.5
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
-ARG ARCH="amd64"
-ARG OS="linux"
 COPY ./prometheus        /bin/prometheus
 COPY ./promtool          /bin/promtool
 COPY documentation/examples/prometheus.yml  /etc/prometheus/prometheus.yml
