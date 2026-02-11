@@ -1,6 +1,7 @@
-FROM alpine:3.21.5
+FROM alpine:3.21.6
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
+RUN apk upgrade openssl
 COPY ./prometheus        /bin/prometheus
 COPY ./promtool          /bin/promtool
 COPY documentation/examples/prometheus.yml  /etc/prometheus/prometheus.yml
